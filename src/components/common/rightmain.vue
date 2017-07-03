@@ -1,7 +1,7 @@
 <template>
   <div class="rightmain">
     <div class="right-breadcrumb">
-      <Breadcrumb>
+      <Breadcrumb v-if="breadcrumb.length>1">
         <Breadcrumb-item v-for="li in breadcrumb" :key="li">{{li.name}}</Breadcrumb-item>
       </Breadcrumb>
     </div>
@@ -14,15 +14,12 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 export default {
-  data () {
-    return {
-      breadcrumb: [
-        { name: '首页' },
-        { name: '分类1' },
-        { name: '表格' }
-      ]
-    }
+  computed: {
+    ...mapGetters([
+      'breadcrumb'
+    ])
   }
 }
 </script>

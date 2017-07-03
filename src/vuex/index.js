@@ -3,8 +3,12 @@ import Vuex from 'vuex'
 
 Vue.use(Vuex)
 
-const store = new Vuex.Store({
+import topnav from './modules/topnav'
+import rightmain from './modules/rightmain'
+
+export default new Vuex.Store({
   modules: {
+    topnav,
+    rightmain
   }
 })
-export default store
