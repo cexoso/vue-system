@@ -1,13 +1,17 @@
 <template>
   <div class="topnav">
-    <router-link to="/index">首页</router-link>
-    <router-link to="/notfound">404</router-link>
+    <router-link v-for="link in routernav" :key="link" :to="link.to">{{link.name}}</router-link>
   </div>
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 export default {
-
+  computed: {
+    ...mapGetters([
+      'routernav'
+    ])
+  }
 }
 </script>
 

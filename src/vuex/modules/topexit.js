@@ -1,7 +1,7 @@
 // import * as types from './../mutations-types'
 export default {
   state: {
-    routernav: [
+    routerexit: [
       {
         to: '/index',
         name: '首页'
@@ -12,7 +12,7 @@ export default {
     ]
   },
   getters: {
-    routernav: state => state.routernav
+    routerexit: state => state.routerexit
   },
   mutations: {
 

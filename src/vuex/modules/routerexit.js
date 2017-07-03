@@ -1,18 +1,18 @@
 // import * as types from './../mutations-types'
 export default {
   state: {
-    routernav: [
+    routerexit: [
       {
-        to: '/index',
-        name: '首页'
+        to: '/user',
+        name: '这里是名字'
       }, {
-        to: '/notfound',
-        name: '404'
+        to: '/login',
+        name: '退出'
       }
     ]
   },
   getters: {
-    routernav: state => state.routernav
+    routerexit: state => state.routerexit
   },
   mutations: {
 
