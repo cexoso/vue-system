@@ -1,22 +1,12 @@
 <template>
   <div class="leftnav">
     <Menu :theme="theme">
-      <Submenu name="1">
+      <Submenu v-for="submenu in leftMenu" :key="submenu" :name="submenu.index">
         <template slot="title">
-          <Icon type="ios-paper"></Icon>
-          内容管理
+          <Icon :type="submenu.icon"></Icon>
+          {{submenu.title}}
         </template>
-        <Menu-item name="1-1">文章管理</Menu-item>
-        <Menu-item name="1-2">评论管理</Menu-item>
-        <Menu-item name="1-3">举报管理</Menu-item>
-      </Submenu>
-      <Submenu name="2">
-        <template slot="title">
-          <Icon type="ios-people"></Icon>
-          用户管理
-        </template>
-        <Menu-item name="2-1">新增用户</Menu-item>
-        <Menu-item name="2-2">活跃用户</Menu-item>
+        <Menu-item v-for="item in submenu.subs" :key="item" :name="item.index">{{item.name}}</Menu-item>
       </Submenu>
     </Menu>
   </div>
@@ -26,7 +16,39 @@
 export default {
   data () {
     return {
-      theme: 'dark'
+      theme: 'dark',
+      leftMenu: [
+        {
+          index: 1,
+          icon: 'ios-paper',
+          title: '内容管理',
+          subs: [
+            {
+              index: '1-1',
+              name: '文章管理'
+            }, {
+              index: '1-2',
+              name: '评论管理'
+            }, {
+              index: '1-3',
+              name: '举报管理'
+            }
+          ]
+        }, {
+          index: 2,
+          icon: 'ios-people',
+          title: '用户管理',
+          subs: [
+            {
+              index: '2-1',
+              name: '新增用户'
+            }, {
+              index: '2-2',
+              name: '活跃用户'
+            }
+          ]
+        }
+      ]
     }
   }
 }

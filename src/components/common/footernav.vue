@@ -1,6 +1,6 @@
 <template>
   <div class="footernav">
-    &copy; vue-router-vuex
+    &copy; vue-system
   </div>
 </template>
 

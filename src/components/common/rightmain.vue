@@ -2,9 +2,7 @@
   <div class="rightmain">
     <div class="right-breadcrumb">
       <Breadcrumb>
-        <Breadcrumb-item href="/">Home</Breadcrumb-item>
-        <Breadcrumb-item href="/components/breadcrumb">Components</Breadcrumb-item>
-        <Breadcrumb-item>Breadcrumb</Breadcrumb-item>
+        <Breadcrumb-item v-for="li in breadcrumb" :key="li">{{li.name}}</Breadcrumb-item>
       </Breadcrumb>
     </div>
     <transition name="fold">
@@ -17,13 +15,21 @@
 
 <script>
 export default {
-
+  data () {
+    return {
+      breadcrumb: [
+        { name: '首页' },
+        { name: '分类1' },
+        { name: '表格' }
+      ]
+    }
+  }
 }
 </script>
 
 <style scoped lang="scss">
 .rightmain {
-  width: 78%;
+  width: 80%;
   margin-left: 20%;
   position: absolute;
   top: 0;
