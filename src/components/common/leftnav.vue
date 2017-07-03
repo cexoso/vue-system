@@ -6,14 +6,14 @@
           <Icon :type="submenu.icon"></Icon>
           {{submenu.title}}
         </template>
-        <Menu-item v-for="item in submenu.subs" :key="item" :name="item.index">{{item.name}}</Menu-item>
+        <Menu-item v-for="item in submenu.subs" :key="item" :name="item.index" on-select="isActive">{{item.name}}</Menu-item>
       </Submenu>
     </Menu>
   </div>
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapGetters, mapActions } from 'vuex'
 export default {
   data () {
     return {
@@ -23,6 +23,11 @@ export default {
   computed: {
     ...mapGetters([
       'leftMenu'
+    ])
+  },
+  methods: {
+    ...mapActions([
+      'isActive'
     ])
   }
 }

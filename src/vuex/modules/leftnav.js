@@ -1,4 +1,4 @@
-// import * as types from './../mutations-types'
+import * as types from './../mutations-types'
 export default {
   state: {
     leftMenu: [
@@ -38,9 +38,11 @@ export default {
     leftMenu: state => state.leftMenu
   },
   mutations: {
-
+    [types.IS_ACTIVE]: (state) => {
+      console.log(1)
+    }
   },
   actions: {
-
+    isActive: ({commit}) => commit('IS_ACTIVE')
   }
 }

@@ -1,1 +1,1 @@
-// export const NAME = 'NAME'
+export const IS_ACTIVE = 'IS_ACTIVE'
