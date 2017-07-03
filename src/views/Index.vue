@@ -1,6 +1,6 @@
 <template>
   <div class="index wrap">
-    1111
+    index
   </div>
 </template>
 
