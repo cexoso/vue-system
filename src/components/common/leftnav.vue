@@ -34,5 +34,10 @@ export default {
   color: #bfcbd9;
   float: left;
   height: 100%;
+  width: 20%;
+  overflow-y: auto;
+  .ivu-menu {
+    width: 100%!important;
+  }
 }
 </style>

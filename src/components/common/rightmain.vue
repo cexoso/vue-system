@@ -32,7 +32,7 @@ export default {
   top: 0;
   bottom: 0;
   padding: 1%;
-  overflow-y: scroll;
+  overflow-y: auto;
   .right-breadcrumb {
     margin-bottom: 10px;
   }
