@@ -6,32 +6,32 @@ export default {
     leftMenu: [{
       index: 1,
       icon: 'ios-paper',
-      title: '内容管理',
+      title: '分类一',
       subs: [{
         index: '1-1',
-        name: '文章管理',
-        to: ''
+        name: '表格',
+        to: '/index/table'
       }, {
         index: '1-2',
-        name: '评论管理',
-        to: ''
+        name: '树形控件',
+        to: '/index/tree'
       }, {
         index: '1-3',
-        name: '举报管理',
-        to: ''
+        name: '表单',
+        to: '/index/form'
       }]
     }, {
       index: 2,
       icon: 'ios-people',
-      title: '用户管理',
+      title: '分类二',
       subs: [{
         index: '2-1',
-        name: '新增用户',
-        to: ''
+        name: '标签页',
+        to: '/index/tabs'
       }, {
         index: '2-2',
-        name: '活跃用户',
-        to: ''
+        name: '弹窗框',
+        to: '/index/modal'
       }]
     }],
     name: [],
@@ -50,7 +50,9 @@ export default {
       let sub = state.leftMenu[name[0]].subs[name[1]].name
       state.name.push([title, sub])
       // 路由切换
-      router.push({ name: 'subs', params: { key: 'subs' }, query: { page: key } })
+      let to = ''
+      to = state.leftMenu[name[0]].subs[name[1]].to
+      router.push({ path: to })
     }
   },
   actions: {

@@ -34,7 +34,7 @@ export default {
   bottom: 0;
   padding: 1%;
   overflow-y: auto;
-  .right-breadcrumb {
+  .ivu-breadcrumb {
     margin-bottom: 10px;
   }
   .fade-enter-active,

@@ -5,7 +5,13 @@ Vue.use(Router)
 const NotFound = resolve => require(['views/notfound'], resolve)
 const Login = resolve => require(['views/Login'], resolve)
 const Index = resolve => require(['views/Index'], resolve)
-const Hello = resolve => require(['./../components/pages/Hello'], resolve)
+const Hello = resolve => require(['views/Hello'], resolve)
+
+const table = resolve => require(['components/pages/table'], resolve)
+const tree = resolve => require(['components/pages/tree'], resolve)
+const form = resolve => require(['components/pages/form'], resolve)
+const tabs = resolve => require(['components/pages/tabs'], resolve)
+const modal = resolve => require(['components/pages/modal'], resolve)
 
 export default new Router({
   mode: 'history',
@@ -23,10 +29,32 @@ export default new Router({
     path: '/index',
     name: 'index',
     component: Index,
-    children: [{
-      path: '/index/:key',
-      name: 'subs',
-      component: Hello
-    }]
+    children: [
+      {
+        path: '/',
+        name: 'Hello',
+        component: Hello
+      }, {
+        path: '/index/table',
+        name: 'table',
+        component: table
+      }, {
+        path: '/index/tree',
+        name: 'tree',
+        component: tree
+      }, {
+        path: '/index/form',
+        name: 'form',
+        component: form
+      }, {
+        path: '/index/tabs',
+        name: 'tabs',
+        component: tabs
+      }, {
+        path: '/index/modal',
+        name: 'modal',
+        component: modal
+      }
+    ]
   }]
 })
