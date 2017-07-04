@@ -4,6 +4,7 @@ Vue.use(Router)
 
 const NotFound = resolve => require(['views/notfound'], resolve)
 const Login = resolve => require(['views/Login'], resolve)
+const User = resolve => require(['views/User'], resolve)
 const Index = resolve => require(['views/Index'], resolve)
 const Hello = resolve => require(['views/Hello'], resolve)
 
@@ -13,7 +14,7 @@ const form = resolve => require(['components/pages/form'], resolve)
 const tabs = resolve => require(['components/pages/tabs'], resolve)
 const modal = resolve => require(['components/pages/modal'], resolve)
 
-export default new Router({
+const router = new Router({
   mode: 'history',
   routes: [{
     path: '*',
@@ -26,6 +27,10 @@ export default new Router({
     name: 'login',
     component: Login
   }, {
+    path: '/user',
+    name: 'user',
+    component: User
+  }, {
     path: '/index',
     name: 'index',
     component: Index,
@@ -33,28 +38,62 @@ export default new Router({
       {
         path: '/',
         name: 'Hello',
-        component: Hello
+        component: Hello,
+        meta: {
+          requireAuth: true
+        }
       }, {
         path: '/index/table',
         name: 'table',
-        component: table
+        component: table,
+        meta: {
+          requireAuth: true
+        }
       }, {
         path: '/index/tree',
         name: 'tree',
-        component: tree
+        component: tree,
+        meta: {
+          requireAuth: true
+        }
       }, {
         path: '/index/form',
         name: 'form',
-        component: form
+        component: form,
+        meta: {
+          requireAuth: true
+        }
       }, {
         path: '/index/tabs',
         name: 'tabs',
-        component: tabs
+        component: tabs,
+        meta: {
+          requireAuth: true
+        }
       }, {
         path: '/index/modal',
         name: 'modal',
-        component: modal
+        component: modal,
+        meta: {
+          requireAuth: true
+        }
       }
     ]
   }]
 })
+
+// 验证 login，存在才跳转
+router.beforeEach((to, from, next) => {
+  let login = sessionStorage.getItem('login')
+  if (to.meta.requireAuth) {
+    if (!login) {
+      next({
+        path: '/login',
+        query: { redirect: to.fullPath }
+      })
+    }
+  }
+  next()
+})
+
+export default router

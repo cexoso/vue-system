@@ -5,9 +5,6 @@ export default {
       {
         to: '/index',
         name: '首页'
-      }, {
-        to: '/notfound',
-        name: '404'
       }
     ]
   },

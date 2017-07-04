@@ -1,7 +1,8 @@
 <template>
 	<div class="topexit">
 		<div class="topexit-main">
-			<router-link v-for="link in routerexit" :key="link" :to="link.to">{{link.name}}</router-link>
+			<a href="/user">{{user.name}}</a>
+			<a href="" @click='logOut'>退出</a>
 		</div>
 	</div>
 </template>
@@ -11,8 +12,14 @@ import { mapGetters } from 'vuex'
 export default {
   computed: {
     ...mapGetters([
-      'routerexit'
+      'user'
     ])
+  },
+  methods: {
+    logOut (state) {
+      window.sessionStorage.clear()
+      location.reload()
+    }
   }
 }
 </script>

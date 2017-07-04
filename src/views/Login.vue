@@ -2,24 +2,60 @@
   <div class="login wrap">
     <div class="login-card">
       <h2>后台管理系统</h2>
-      <form action="">
-        <label for="username">
-          <input type="text" placeholder="账号">
-        </label>
-        <label for="password">
-          <input type="password" placeholder="密码">
-        </label>
-        <div class="btn">
-          <button>登录</button>
-        </div>
-      </form>
+      <Form ref="formInline" :model="formInline" :rules="ruleInline" inline>
+        <Form-item prop="user">
+          <Input type="text" v-model="formInline.user" placeholder="Username">
+          <Icon type="ios-person-outline" slot="prepend"></Icon>
+          </Input>
+        </Form-item>
+        <Form-item prop="password">
+          <Input type="password" v-model="formInline.password" placeholder="Password">
+          <Icon type="ios-locked-outline" slot="prepend"></Icon>
+          </Input>
+        </Form-item>
+        <Form-item>
+          <Button type="primary" @click="logIn('formInline')">登录</Button>
+        </Form-item>
+      </Form>
     </div>
   </div>
 </template>
 
 <script>
+import router from './../router/index'
 export default {
-
+  data () {
+    return {
+      formInline: {
+        user: '',
+        password: ''
+      },
+      ruleInline: {
+        user: [
+          { required: true, message: '请填写用户名', trigger: 'blur' }
+        ],
+        password: [
+          { required: true, message: '请填写密码', trigger: 'blur' },
+          { type: 'string', min: 6, message: '密码长度不能小于6位', trigger: 'blur' }
+        ]
+      }
+    }
+  },
+  methods: {
+    logIn (name) {
+      this.$refs[name].validate((valid) => {
+        if (valid) {
+          sessionStorage.setItem('login', JSON.stringify(this.formInline))
+          this.$Message.success('提交成功!')
+          router.push('/index')
+        } else {
+          this.$Message.error('表单验证失败!')
+        }
+        this.formInline.user = ''
+        this.formInline.password = ''
+      })
+    }
+  }
 }
 </script>
 
@@ -45,37 +81,11 @@ export default {
     }
     form {
       padding: 30px 60px;
-      label {
-        position: relative;
-        font-size: 14px;
-        display: inline-block;
-        width: 100%;
-        margin-bottom: 22px;
-        input {
-          appearance: none;
-          border-radius: 4px;
-          border: 1px solid #bfcbd9;
-          box-sizing: border-box;
-          color: #1f2d3d;
-          display: block;
-          font-size: inherit;
-          height: 36px;
-          line-height: 1;
-          outline: 0;
-          padding: 3px 10px;
-          transition: border-color .2s cubic-bezier(.645, .045, .355, 1);
+      .ivu-form-inline,
+      .ivu-form-item {
+        display: block;
+        .ivu-btn-primary {
           width: 100%;
-        }
-      }
-      .btn {
-        button {
-          border: 1px solid #bfcbd9;
-          width: 100%;
-          height: 36px;
-          border-radius: 4px;
-          color: #fff;
-          background-color: #20a0ff;
-          border-color: #20a0ff;
         }
       }
     }

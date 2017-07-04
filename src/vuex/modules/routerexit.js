@@ -1,18 +1,12 @@
 // import * as types from './../mutations-types'
 export default {
   state: {
-    routerexit: [
-      {
-        to: '/user',
-        name: '这里是名字'
-      }, {
-        to: '/login',
-        name: '退出'
-      }
-    ]
+    user: {
+      name: '小明001'
+    }
   },
   getters: {
-    routerexit: state => state.routerexit
+    user: state => state.user
   },
   mutations: {
 
