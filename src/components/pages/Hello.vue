@@ -7,7 +7,6 @@
 
 <script>
 export default {
-  name: 'hello',
   data () {
     return {
       msg: 'Welcome to Your Vue.js App'
@@ -17,7 +16,5 @@ export default {
 </script>
 
 <style scoped lang="scss">
-h1, h2 {
-  font-weight: normal;
-}
+
 </style>

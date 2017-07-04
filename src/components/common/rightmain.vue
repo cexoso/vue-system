@@ -1,8 +1,9 @@
 <template>
   <div class="rightmain">
     <div class="right-breadcrumb">
-      <Breadcrumb v-if="breadcrumb.length>1">
-        <Breadcrumb-item v-for="li in breadcrumb" :key="li">{{li.name}}</Breadcrumb-item>
+      <Breadcrumb v-if="breadcrumb">
+        <Breadcrumb-item>首页</Breadcrumb-item>
+        <Breadcrumb-item v-for="li in breadcrumb" :key="li">{{li}}</Breadcrumb-item>
       </Breadcrumb>
     </div>
     <transition name="fold">
@@ -38,11 +39,11 @@ export default {
   }
   .fade-enter-active,
   .fade-leave-active {
-    transition: transform .5s
+    transition: opacity .5s
   }
   .fade-enter,
-  .fade-leave-active {
-    transform: translate3d(0, -100%, 0);
+  .fade-leave-to {
+    opacity: 0
   }
 }
 </style>
