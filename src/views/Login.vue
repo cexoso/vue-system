@@ -47,7 +47,7 @@ export default {
         if (valid) {
           sessionStorage.setItem('login', JSON.stringify(this.formInline))
           this.$Message.success('提交成功!')
-          router.push('/index')
+          router.push({ name: 'index' })
         } else {
           this.$Message.error('表单验证失败!')
         }

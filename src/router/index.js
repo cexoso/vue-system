@@ -29,14 +29,17 @@ const router = new Router({
   }, {
     path: '/user',
     name: 'user',
-    component: User
+    component: User,
+    meta: {
+      requireAuth: true
+    }
   }, {
     path: '/index',
     name: 'index',
     component: Index,
     children: [
       {
-        path: '/',
+        path: '/index',
         name: 'Hello',
         component: Hello,
         meta: {

@@ -1,7 +1,7 @@
 <template>
 	<div class="topexit">
 		<div class="topexit-main">
-			<a href="/user">{{user.name}}</a>
+			<router-link to="/user">{{user.name}}</router-link>
 			<a href="" @click='logOut'>退出</a>
 		</div>
 	</div>
@@ -17,7 +17,7 @@ export default {
   },
   methods: {
     logOut (state) {
-      window.sessionStorage.clear()
+      sessionStorage.clear()
       location.reload()
     }
   }

@@ -39,7 +39,7 @@ export default {
   },
   getters: {
     leftMenu: state => state.leftMenu,
-    breadcrumb: state => state.name[0]
+    breadcrumb: state => state.name ? JSON.parse(sessionStorage.getItem('breadcrumb')) : state.name[0]
   },
   mutations: {
     [types.IS_ACTIVE]: (state, key) => {
@@ -49,6 +49,8 @@ export default {
       let title = state.leftMenu[name[0]].title
       let sub = state.leftMenu[name[0]].subs[name[1]].name
       state.name.push([title, sub])
+      sessionStorage.setItem('breadcrumb', JSON.stringify(state.name[0]))
+
       // 路由切换
       let to = ''
       to = state.leftMenu[name[0]].subs[name[1]].to

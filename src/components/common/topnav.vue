@@ -1,7 +1,9 @@
 <template>
-  <div class="topnav">
-    <router-link v-for="link in routernav" :key="link" :to="link.to">{{link.name}}</router-link>
-  </div>
+  <ul class="topnav">
+    <li @click='to' v-for="link in routernav" :key="link">
+      <router-link :to="link.to">{{link.name}}</router-link>
+    </li>
+  </ul>
 </template>
 
 <script>
@@ -11,6 +13,11 @@ export default {
     ...mapGetters([
       'routernav'
     ])
+  },
+  methods: {
+    to () {
+      sessionStorage.removeItem('breadcrumb')
+    }
   }
 }
 </script>
@@ -21,18 +28,21 @@ export default {
   text-align: center;
   background-color: #eef1f6;
   font-size: 0;
-  a {
-    font-size: 14px;
-    margin: 0 10px;
+  li {
     display: inline-block;
-    height: 50px;
-    line-height: 50px;
-    padding: 0 20px;
-    color: #48576a;
-  }
-  .router-link-active,
-  .router-link-exact-active{
-    color: #20A0FF;
+    margin: 0 10px;
+    a {
+      padding: 0 20px;
+      display: block;
+      font-size: 14px;
+      height: 50px;
+      line-height: 50px;
+      color: #48576a;
+    }
+    .router-link-active,
+    .router-link-exact-active {
+      color: #20A0FF;
+    }
   }
 }
 </style>
