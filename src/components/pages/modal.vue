@@ -1,14 +1,21 @@
 <template>
   <div class="modal">
     <div class="demo1">
-      <p>
-        姓名：{{ value }}
-      </p>
-      <p>
-        <Button @click="render">自定义内容</Button>
-      </p>
+      <Input v-model="value1">
+      <Select v-model="select" slot="prepend" style="width: 80px">
+        <Option value="name">姓名</Option>
+        <Option value="time">年龄</Option>
+      </Select>
+      <Button slot="append" icon="ios-search" @click='search'></Button>
+      </Input>
     </div>
     <div class="demo2">
+      <Button @click="instance('info')">消息</Button>
+      <Button type="success" @click="instance('success')">成功</Button>
+      <Button type="warning" @click="instance('warning')">警告</Button>
+      <Button type="error" @click="instance('error')">错误</Button>
+    </div>
+    <div class="demo3">
       <Button type="primary" @click="modal1 = true">显示对话框</Button>
       <Modal v-model="modal1" title="普通的Modal对话框标题" @on-ok="ok" @on-cancel="cancel">
         <p>对话框内容</p>
@@ -16,11 +23,13 @@
         <p>对话框内容</p>
       </Modal>
     </div>
-    <div class="demo3">
-      <Button @click="instance('info')">消息</Button>
-      <Button type="success" @click="instance('success')">成功</Button>
-      <Button type="warning" @click="instance('warning')">警告</Button>
-      <Button type="error" @click="instance('error')">错误</Button>
+    <div class="demo4">
+      <p>
+        姓名：{{ value }}
+      </p>
+      <p>
+        <Button @click="render">自定义内容</Button>
+      </p>
     </div>
   </div>
 </template>
@@ -29,7 +38,9 @@ export default {
   data () {
     return {
       value: '',
-      modal1: false
+      modal1: false,
+      value1: '',
+      select: 'name'
     }
   },
   methods: {
@@ -86,14 +97,18 @@ export default {
           })
           break
       }
+    },
+    search () {
+      console.log(this.select)
+      console.log(this.value1)
     }
   }
 }
 </script>
 
 <style scoped lang="scss">
-.modal{
-  div{
+.modal {
+  .demo1,.demo2,.demo3,.demo4{
     margin-bottom: 10px;
   }
 }
