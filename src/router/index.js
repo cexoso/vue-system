@@ -35,12 +35,11 @@ const router = new Router({
     }
   }, {
     path: '/index',
-    name: 'index',
     component: Index,
     children: [
       {
-        path: '/index',
-        name: 'Hello',
+        path: '',
+        name: 'index',
         component: Hello,
         meta: {
           requireAuth: true
