@@ -12,14 +12,14 @@ export default {
         name: '1-1',
         indent: '1'
       }, {
-        id: '1-1',
-        text: '子类 1',
-        name: '1-1',
+        id: '1-2',
+        text: '子类 2',
+        name: '1-2',
         indent: '1',
         children: [{
-          id: '1-1-1',
+          id: '1-2-1',
           text: '子类 1-1',
-          name: '1-1-1',
+          name: '1-2-1',
           indent: '2'
         }]
       }]
@@ -30,8 +30,7 @@ export default {
       indent: '0'
     }],
     table: [],
-    icon: true,
-    list: true
+    icon: false
   },
   getters: {
     table: state => state.items,
@@ -42,13 +41,10 @@ export default {
     [types.TOGGLE_TREE] (state, index) {
       let a = state.items[index]
       if (a.children !== undefined) {
-        state.icon = !state.icon
-        state.table.push({
-          id: index + 1,
-          text: '父类 2',
-          name: '2'
-        })
-        console.log(state.table)
+        let x = state.items
+        a.children.forEach(function (e) {
+          x.push(e)
+        }, this)
       }
     }
   },

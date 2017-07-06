@@ -8,7 +8,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr v-for="(item, index) in table" :key="item" v-show="list">
+      <tr v-for="(item, index) in table" :key="item">
         <td @click="toggletree(index)" :class="'level-' + item.indent">
           <i class="ivu-icon" :class="icon?'ivu-icon-minus':'ivu-icon-plus'" v-if="item.children"></i>
           <i class="ivu-icon ivu-icon-minus" v-else></i>
