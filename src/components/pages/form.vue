@@ -72,3 +72,9 @@
       }
     }
 </script>
+
+<style scoped lang="scss">
+.ivu-col{
+    width: auto;
+}
+</style>
