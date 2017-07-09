@@ -1,6 +1,6 @@
 <template>
   <div class="tree">
-    <tree :tree="list"></tree>
+    <tree :bar="title" :tree="list"></tree>
   </div>
 </template>
 
@@ -13,38 +13,68 @@ export default {
   name: 'treelist',
   data () {
     return {
+      title: [
+        {
+          name: '标题',
+          types: [
+            {title: '标题'},
+            {title: '标题'},
+            {title: '标题'}
+          ]
+        }
+      ],
       list: [
         {
           id: '1',
           name: '1',
-          type: 'tree',
+          types: [
+            {li: 'type1'},
+            {li: 'type2'},
+            {li: 'type3'}
+          ],
           expanded: true,
           indent: '1',
           children: [
             {
               id: '1-1',
               name: '1-1',
-              type: 'tree',
+              types: [
+                {li: 'type1'},
+                {li: 'type2'},
+                {li: 'type3'}
+              ],
               expanded: true,
               indent: '2',
               children: [
                 {
                   id: '1-1-1',
                   name: '1-1-1',
-                  type: 'tree',
+                  types: [
+                    {li: 'type1'},
+                    {li: 'type2'},
+                    {li: 'type3'}
+                  ],
                   expanded: true,
                   indent: '3'
                 }, {
                   id: '1-1-2',
                   name: '1-1-2',
-                  type: 'tree',
+                  types: [
+                    {li: 'type1'},
+                    {li: 'type2'},
+                    {li: 'type3'}
+                  ],
                   expanded: true,
                   indent: '3',
                   children: [
                     {
                       id: '1-1-1-1',
                       name: '1-1-1-1',
-                      type: 'tree',
+                      types: [
+                        {li: 'type1'},
+                        {li: 'type2'},
+                        {li: 'type3'}
+                      ],
                       expanded: true,
                       indent: '4'
                     }
@@ -52,7 +82,11 @@ export default {
                 }, {
                   id: '1-1-3',
                   name: '1-1-3',
-                  type: 'tree',
+                  types: [
+                    {li: 'type1'},
+                    {li: 'type2'},
+                    {li: 'type3'}
+                  ],
                   expanded: true,
                   indent: '3'
                 }
@@ -60,7 +94,11 @@ export default {
             }, {
               id: '1-2',
               name: '1-2',
-              type: 'tree',
+              types: [
+                {li: 'type1'},
+                {li: 'type2'},
+                {li: 'type3'}
+              ],
               expanded: true,
               indent: '2'
             }
@@ -68,7 +106,11 @@ export default {
         }, {
           id: '2',
           name: '2',
-          type: 'tree',
+          types: [
+            {li: 'type1'},
+            {li: 'type2'},
+            {li: 'type3'}
+          ],
           expanded: true,
           indent: '1'
         }
