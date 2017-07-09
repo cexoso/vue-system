@@ -80,8 +80,6 @@ export default {
 
 <style scoped lang="scss">
 .tree {
-  width: 600px;
-  margin: 10px auto;
   border: 1px solid #ccc;
   border-bottom: none;
 }
