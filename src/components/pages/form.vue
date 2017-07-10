@@ -15,7 +15,7 @@
                 <Col span="11">
                     <Date-picker type="date" placeholder="选择日期" v-model="formItem.date"></Date-picker>
                 </Col>
-                <Col span="2" style="text-align: center">-</Col>
+                <Col span="2" class="line">-</Col>
                 <Col span="11">
                     <Time-picker type="time" placeholder="选择时间" v-model="formItem.time"></Time-picker>
                 </Col>
@@ -76,5 +76,8 @@
 <style scoped lang="scss">
 .ivu-col{
     width: auto;
+}
+.line {
+    margin: 0 10px;
 }
 </style>
