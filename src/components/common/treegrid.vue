@@ -42,6 +42,7 @@ export default {
       display: inline-block;
     }
     dt {
+      user-select: none;
       float: left;
       margin-left: 20px;
     }
@@ -58,6 +59,7 @@ export default {
       border-bottom: 1px solid #ccc;
       dt {
         float: left;
+        user-select: none;
       }
       dt,
       dd {
