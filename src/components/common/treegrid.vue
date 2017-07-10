@@ -14,7 +14,10 @@
             {{li.name}}
           </dt>
           <dd v-for="i in li.types" :key="i">{{i.li}}</dd>
-          <dd class="btn"><Button type="primary" size="small">查看</Button><Button type="error" size="small">删除</Button></dd>
+          <dd class="btn">
+            <Button type="primary" size="small">查看</Button>
+            <Button type="error" size="small">删除</Button>
+          </dd>
         </dl>
         <tree v-show="li.expanded" :tree="li.children"></tree>
       </li>
@@ -43,6 +46,7 @@ export default {
       display: inline-block;
       height: 40px;
       line-height: 40px;
+      vertical-align: middle;
     }
     dt {
       user-select: none;
@@ -53,6 +57,9 @@ export default {
       width: 10%;
       text-align: center;
       border-left: 1px solid #e9eaec;
+      &:last-child{
+        min-width: 100px;
+      }
     }
   }
   .list {
@@ -68,16 +75,18 @@ export default {
         display: inline-block;
         height: 40px;
         line-height: 40px;
+        vertical-align: middle;
       }
       dd {
         width: 10%;
         text-align: center;
         border-left: 1px solid #e9eaec;
       }
-      .btn{
-        button{
+      .btn {
+        min-width: 100px;
+        button {
           margin-left: 4px;
-          &:first-child{
+          &:first-child {
             margin-left: 0;
           }
         }

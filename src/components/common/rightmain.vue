@@ -1,16 +1,20 @@
 <template>
   <div class="rightmain">
-    <div class="right-breadcrumb">
-      <Breadcrumb v-if="breadcrumb">
-        <Breadcrumb-item>首页</Breadcrumb-item>
-        <Breadcrumb-item v-for="li in breadcrumb" :key="li">{{li}}</Breadcrumb-item>
-      </Breadcrumb>
-    </div>
-    <transition name="fold">
-      <keep-alive>
-        <router-view></router-view>
-      </keep-alive>
-    </transition>
+    <Tabs type="card" closable @on-tab-remove="handleTabRemove">
+      <Tab-pane label="标签一" v-if="tab0">
+        <div class="right-breadcrumb">
+          <Breadcrumb v-if="breadcrumb">
+            <Breadcrumb-item>首页</Breadcrumb-item>
+            <Breadcrumb-item v-for="li in breadcrumb" :key="li">{{li}}</Breadcrumb-item>
+          </Breadcrumb>
+        </div>
+        <transition name="fold">
+          <keep-alive>
+            <router-view></router-view>
+          </keep-alive>
+        </transition>
+      </Tab-pane>
+    </Tabs>
   </div>
 </template>
 
@@ -21,6 +25,16 @@ export default {
     ...mapGetters([
       'breadcrumb'
     ])
+  },
+  data () {
+    return {
+      tab0: true
+    }
+  },
+  methods: {
+    handleTabRemove () {
+
+    }
   }
 }
 </script>
