@@ -122,7 +122,7 @@ export default {
 
 <style scoped lang="scss">
 .tree {
-  border: 1px solid #ccc;
+  border: 1px solid #e9eaec;
   border-bottom: none;
 }
 </style>

@@ -14,7 +14,7 @@
             {{li.name}}
           </dt>
           <dd v-for="i in li.types" :key="i">{{i.li}}</dd>
-          <dd class="btn">查看</dd>
+          <dd class="btn"><Button type="primary" size="small">查看</Button><Button type="error" size="small">删除</Button></dd>
         </dl>
         <tree v-show="li.expanded" :tree="li.children"></tree>
       </li>
@@ -35,28 +35,30 @@ export default {
 <style scoped lang="scss">
 .treelist {
   .bar {
-    border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid #e9eaec;
     text-align: right;
-    font-weight: bold;
-    dd,dt {
+    background-color: #f8f8f9;
+    dd,
+    dt {
       display: inline-block;
+      height: 40px;
+      line-height: 40px;
     }
     dt {
       user-select: none;
       float: left;
       margin-left: 20px;
     }
-    dd{
+    dd {
       width: 10%;
       text-align: center;
-      border-left: 1px solid #ccc;
-
+      border-left: 1px solid #e9eaec;
     }
   }
   .list {
     .title {
       text-align: right;
-      border-bottom: 1px solid #ccc;
+      border-bottom: 1px solid #e9eaec;
       dt {
         float: left;
         user-select: none;
@@ -64,11 +66,21 @@ export default {
       dt,
       dd {
         display: inline-block;
+        height: 40px;
+        line-height: 40px;
       }
       dd {
         width: 10%;
         text-align: center;
-        border-left: 1px solid #ccc;
+        border-left: 1px solid #e9eaec;
+      }
+      .btn{
+        button{
+          margin-left: 4px;
+          &:first-child{
+            margin-left: 0;
+          }
+        }
       }
 
       @for $n from 0 through 10 {
