@@ -45,7 +45,7 @@ export default {
     logIn (name) {
       this.$refs[name].validate((valid) => {
         if (valid) {
-          sessionStorage.setItem('login', JSON.stringify(this.formInline))
+          sessionStorage.setItem('token', JSON.stringify(this.formInline))
           this.$Message.success('提交成功!')
           router.push({ name: 'index' })
         } else {

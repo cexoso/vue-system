@@ -84,9 +84,9 @@ const router = new Router({
   }]
 })
 
-// 验证 login，存在才跳转
+// 验证 token，存在才跳转
 router.beforeEach((to, from, next) => {
-  let login = sessionStorage.getItem('login')
+  let login = sessionStorage.getItem('token')
   if (to.meta.requireAuth) {
     if (!login) {
       next({

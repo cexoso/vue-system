@@ -1,39 +1,10 @@
 import * as types from './../mutations-types'
 import router from 'router'
+import api from 'assets/js/api'
 
 export default {
   state: {
-    leftMenu: [{
-      index: 1,
-      icon: 'ios-paper',
-      title: '分类一',
-      subs: [{
-        index: '1-1',
-        name: '表格',
-        to: '/index/table'
-      }, {
-        index: '1-2',
-        name: '树形控件',
-        to: '/index/tree'
-      }, {
-        index: '1-3',
-        name: '表单',
-        to: '/index/form'
-      }]
-    }, {
-      index: 2,
-      icon: 'ios-people',
-      title: '分类二',
-      subs: [{
-        index: '2-1',
-        name: '标签页',
-        to: '/index/tabs'
-      }, {
-        index: '2-2',
-        name: '弹窗框',
-        to: '/index/modal'
-      }]
-    }],
+    leftMenu: [],
     name: [],
     breadcrumb: []
   },
@@ -54,12 +25,29 @@ export default {
       // 路由切换
       let to = ''
       to = state.leftMenu[name[0]].subs[name[1]].to
-      router.push({ path: to })
+      router.push({
+        path: to
+      })
+    },
+    leftMenu: (state, res) => {
+      state.leftMenu = res.leftMenu
     }
   },
   actions: {
     isActive: ({
       commit
-    }, key) => commit('IS_ACTIVE', key)
+    }, key) => commit('IS_ACTIVE', key),
+
+    leftMenu ({
+      commit
+    }, res) {
+      api.leftMenu()
+        .then(function (res) {
+          commit('leftMenu', res)
+        })
+        .catch(function (err) {
+          console.log(err)
+        })
+    }
   }
 }
