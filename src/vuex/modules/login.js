@@ -33,7 +33,9 @@ export default {
           commit('LOGIN', res)
         }
       })
-      .catch(this.requestError)
+      .catch(function (err) {
+        console.log(err)
+      })
     }
   }
 }
