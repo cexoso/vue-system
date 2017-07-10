@@ -15,6 +15,7 @@
     })
   }
   export default {
+    // 获取左边导航
     leftMenu () {
       return fetch('/leftMenu')
     }

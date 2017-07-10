@@ -2,19 +2,19 @@
   <div class="login wrap">
     <div class="login-card">
       <h2>后台管理系统</h2>
-      <Form ref="formInline" :model="formInline" :rules="ruleInline" inline>
+      <Form ref="formInline" inline>
         <Form-item prop="user">
-          <Input type="text" v-model="formInline.user" placeholder="Username">
+          <Input type="text" v-model="login.username" placeholder="Username">
           <Icon type="ios-person-outline" slot="prepend"></Icon>
           </Input>
         </Form-item>
         <Form-item prop="password">
-          <Input type="password" v-model="formInline.password" placeholder="Password">
+          <Input type="password" v-model="login.password" placeholder="Password">
           <Icon type="ios-locked-outline" slot="prepend"></Icon>
           </Input>
         </Form-item>
         <Form-item>
-          <Button type="primary" @click="logIn('formInline')">登录</Button>
+          <Button type="primary" @click="logIn">登录</Button>
         </Form-item>
       </Form>
     </div>
@@ -22,39 +22,18 @@
 </template>
 
 <script>
-import router from './../router/index'
+import { mapGetters, mapActions } from 'vuex'
 export default {
-  data () {
-    return {
-      formInline: {
-        user: '',
-        password: ''
-      },
-      ruleInline: {
-        user: [
-          { required: true, message: '请填写用户名', trigger: 'blur' }
-        ],
-        password: [
-          { required: true, message: '请填写密码', trigger: 'blur' },
-          { type: 'string', min: 6, message: '密码长度不能小于6位', trigger: 'blur' }
-        ]
-      }
-    }
+  computed: {
+    ...mapGetters([
+      'login',
+      'user'
+    ])
   },
   methods: {
-    logIn (name) {
-      this.$refs[name].validate((valid) => {
-        if (valid) {
-          sessionStorage.setItem('token', JSON.stringify(this.formInline))
-          this.$Message.success('提交成功!')
-          router.push({ name: 'index' })
-        } else {
-          this.$Message.error('表单验证失败!')
-        }
-        this.formInline.user = ''
-        this.formInline.password = ''
-      })
-    }
+    ...mapActions([
+      'logIn'
+    ])
   }
 }
 </script>

@@ -9,8 +9,8 @@
       <li class="list" v-for="li in tree" :key="li">
         <dl class="title">
           <dt :class="['lev-'+ li.indent]" @click="li.expanded=!li.expanded">
-            <i v-if="li.children" class="ivu-icon" :class="[li.expanded ? 'ivu-icon-minus':'ivu-icon-plus']"></i>
-            <i v-else class="ivu-icon ivu-icon-document"></i>
+            <Icon v-if="li.children" class="ivu-icon" :type="[li.expanded ? 'arrow-down-b':'arrow-right-b']" size="16"></Icon>
+            <Icon v-else type="document" size="16"></Icon>
             {{li.name}}
           </dt>
           <dd v-for="i in li.types" :key="i">{{i.li}}</dd>
@@ -69,6 +69,7 @@ export default {
       dt {
         float: left;
         user-select: none;
+        cursor: pointer;
       }
       dt,
       dd {
