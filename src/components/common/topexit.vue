@@ -17,7 +17,7 @@ export default {
   },
   methods: {
     logOut (state) {
-      sessionStorage.clear()
+      localStorage.clear()
       location.reload()
     }
   }

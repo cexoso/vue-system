@@ -10,7 +10,7 @@ export default {
   },
   getters: {
     leftMenu: state => state.leftMenu,
-    breadcrumb: state => state.name ? JSON.parse(sessionStorage.getItem('breadcrumb')) : state.name[0]
+    breadcrumb: state => state.name ? JSON.parse(localStorage.getItem('breadcrumb')) : state.name[0]
   },
   mutations: {
     [types.IS_ACTIVE]: (state, key) => {
