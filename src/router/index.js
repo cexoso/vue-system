@@ -18,7 +18,10 @@ const router = new Router({
   mode: 'history',
   routes: [{
     path: '*',
-    component: NotFound
+    component: NotFound,
+    meta: {
+      requireAuth: true
+    }
   }, {
     path: '',
     redirect: 'login'
