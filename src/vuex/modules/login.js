@@ -16,7 +16,7 @@ export default {
         username: state.login.username,
         password: state.login.password
       })
-      sessionStorage.setItem('token', res.data.info.token)
+      localStorage.setItem('token', res.data.info.token)
 
       router.push({ name: 'index' })
       state.login.username = ''
