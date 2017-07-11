@@ -20,7 +20,7 @@ export default {
       let title = state.leftMenu[name[0]].title
       let sub = state.leftMenu[name[0]].subs[name[1]].name
       state.name.push([title, sub])
-      sessionStorage.setItem('breadcrumb', JSON.stringify(state.name[0]))
+      localStorage.setItem('breadcrumb', JSON.stringify(state.name[0]))
 
       // 路由切换
       let to = ''
