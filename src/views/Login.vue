@@ -2,8 +2,8 @@
   <div class="login wrap">
     <div class="login-card">
       <h2>后台管理系统</h2>
-      <Form ref="formInline" inline>
-        <Form-item prop="user">
+      <Form ref="login" inline>
+        <Form-item prop="login">
           <Input type="text" v-model="login.username" placeholder="Username">
           <Icon type="ios-person-outline" slot="prepend"></Icon>
           </Input>
@@ -14,7 +14,7 @@
           </Input>
         </Form-item>
         <Form-item>
-          <Button type="primary" @click="logIn">登录</Button>
+          <Button type="primary" @click="logIn(login)">登录</Button>
         </Form-item>
       </Form>
     </div>
@@ -26,8 +26,7 @@ import { mapGetters, mapActions } from 'vuex'
 export default {
   computed: {
     ...mapGetters([
-      'login',
-      'user'
+      'login'
     ])
   },
   methods: {

@@ -4,16 +4,15 @@ import router from 'router/index'
 
 export default {
   state: {
-    login: [],
-    user: {}
+    login: []
   },
   getters: {
     login: (state) => state.login
-
   },
   mutations: {
     [types.LOGIN] (state, res) {
       state.login.length = 0
+      console.log(state.login.username)
       state.login.push({
         username: state.login.username,
         password: state.login.password
@@ -26,8 +25,9 @@ export default {
     }
   },
   actions: {
-    logIn ({ commit }, res) {
-      axios.post('https://www.easy-mock.com/mock/5962eeb29adc231f357c6bd5/sys/login', name)
+    logIn ({ commit }, login) {
+      console.log(login)
+      axios.post('https://www.easy-mock.com/mock/5962eeb29adc231f357c6bd5/sys/login', login)
       .then(function (res) {
         if (res.data.code === 200) {
           commit('LOGIN', res)
