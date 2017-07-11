@@ -1,6 +1,6 @@
 import * as types from './../mutations-types'
-import axios from 'axios'
 import router from 'router/index'
+import api from 'assets/js/api'
 
 export default {
   state: {
@@ -25,14 +25,11 @@ export default {
   },
   actions: {
     logIn ({ commit }, login) {
-      axios.post('https://www.easy-mock.com/mock/5962eeb29adc231f357c6bd5/sys/login', login)
+      api.post('/login', login)
       .then(function (res) {
         if (res.data.code === 200) {
           commit('LOGIN', res)
         }
-      })
-      .catch(function (err) {
-        console.log(err)
       })
     }
   }
