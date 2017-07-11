@@ -34,13 +34,9 @@ export default {
     }
   },
   actions: {
-    isActive: ({
-      commit
-    }, key) => commit('IS_ACTIVE', key),
+    isActive: ({commit}, key) => commit('IS_ACTIVE', key),
 
-    leftMenu ({
-      commit
-    }, res) {
+    leftMenu ({commit}, res) {
       api.get('/leftMenu')
         .then(function (res) {
           commit('leftMenu', res.data)

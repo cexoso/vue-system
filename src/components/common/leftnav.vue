@@ -29,6 +29,9 @@ export default {
     ...mapActions([
       'isActive'
     ])
+  },
+  created () {
+    this.$store.dispatch('leftMenu')
   }
 }
 </script>
