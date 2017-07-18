@@ -35,12 +35,6 @@
                 <Checkbox label="看电影"></Checkbox>
             </Checkbox-group>
         </Form-item>
-        <Form-item label="开关">
-            <Switch v-model="formItem.switch" size="large">
-                <span slot="open">开启</span>
-                <span slot="close">关闭</span>
-            </Switch>
-        </Form-item>
         <Form-item label="滑块">
             <Slider v-model="formItem.slider" range></Slider>
         </Form-item>
@@ -62,7 +56,6 @@
             select: '',
             radio: 'male',
             checkbox: [],
-            switch: true,
             date: '',
             time: '',
             slider: [20, 50],
