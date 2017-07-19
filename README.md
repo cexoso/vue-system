@@ -1,5 +1,5 @@
 # vue-system
-[为什么要推这套框架](http://www.cnblogs.com/luozhihao/p/5761515.html)
+<img src="./src/assets/img/why.png" alt="为什么要推这套框架" width="500">
 
 
 ##技术点
