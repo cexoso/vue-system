@@ -1,5 +1,6 @@
 # vue-system
-<img src="./src/assets/img/why.png" alt="为什么要推这套框架" width="500">
+
+![为什么要推这套框架](./src/assets/img/why.png)
 
 
 ##技术点
