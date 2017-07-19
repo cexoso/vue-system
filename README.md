@@ -8,5 +8,5 @@
 * [vue](https://cn.vuejs.org/) ———— 渐进式 JS（MVC） 框架
 * [iview](https://www.iviewui.com/) ———— 基于 Vue 的开源 UI 组件库
 * [vuex](https://vuex.vuejs.org/zh-cn/intro.html) ———— Vue 应用程序开发的状态管理模式
-* [axios](https://www.kancloud.cn/yunye/axios/234845) ———— 基于 Promise 用于浏览器和 nodejs 的 HTTP 客户端
+* [axios](https://www.awesomes.cn/repo/mzabriskie/axios) ———— 基于 Promise 用于浏览器和 nodejs 的 HTTP 客户端
 
