@@ -15,7 +15,6 @@ const tabs = resolve => require(['components/pages/tabs'], resolve)
 const modal = resolve => require(['components/pages/modal'], resolve)
 
 const router = new Router({
-  mode: 'history',
   routes: [{
     path: '*',
     component: NotFound,
