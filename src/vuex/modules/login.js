@@ -7,26 +7,29 @@ export default {
     login: {
       username: '',
       password: ''
-    }
+    },
+    msg: ''
   },
   getters: {
-    login: (state) => state.login
+    login: (state) => state.login,
+    msg: (state) => state.msg
   },
   mutations: {
     [types.LOGIN] (state, res) {
-      console.log(state.login)
-      localStorage.setItem('token', res.data.info.token)
+      localStorage.setItem('token', res.info.token)
       router.push({ name: 'index' })
       state.login.username = ''
       state.login.password = ''
     }
   },
   actions: {
-    logIn ({ commit }, login) {
+    logIn ({ commit, state }, login) {
       api.post('/login', login)
       .then(function (res) {
         if (res.data.code === 200) {
-          commit('LOGIN', res)
+          commit('LOGIN', res.data)
+        } else {
+          state.msg = res.data.massage
         }
       })
     }

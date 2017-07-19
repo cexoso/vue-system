@@ -15,6 +15,7 @@
         </Form-item>
         <Form-item>
           <Button type="primary" @click="logIn(login)">登录</Button>
+          <p v-if="msg"><Icon type="information-circled"></Icon>{{msg}}</p>
         </Form-item>
       </Form>
     </div>
@@ -26,7 +27,8 @@ import { mapGetters, mapActions } from 'vuex'
 export default {
   computed: {
     ...mapGetters([
-      'login'
+      'login',
+      'msg'
     ])
   },
   methods: {
@@ -62,6 +64,17 @@ export default {
       .ivu-form-inline,
       .ivu-form-item {
         display: block;
+        margin-right: 0;
+        &:last-child{
+          p{
+            width: 100%;
+            position: absolute;
+            color: #ed3f14;
+            i{
+              margin-right: 4px;
+            }
+          }
+        }
         .ivu-btn-primary {
           width: 100%;
         }
