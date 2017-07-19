@@ -4,20 +4,18 @@ import api from 'assets/js/api'
 
 export default {
   state: {
-    login: []
+    login: {
+      username: '',
+      password: ''
+    }
   },
   getters: {
     login: (state) => state.login
   },
   mutations: {
     [types.LOGIN] (state, res) {
-      state.login.length = 0
-      state.login.push({
-        username: state.login.username,
-        password: state.login.password
-      })
+      console.log(state.login)
       localStorage.setItem('token', res.data.info.token)
-
       router.push({ name: 'index' })
       state.login.username = ''
       state.login.password = ''

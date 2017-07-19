@@ -3,12 +3,12 @@
     <div class="login-card">
       <h2>后台管理系统</h2>
       <Form ref="login" inline>
-        <Form-item prop="login">
+        <Form-item>
           <Input type="text" v-model="login.username" placeholder="Username">
           <Icon type="ios-person-outline" slot="prepend"></Icon>
           </Input>
         </Form-item>
-        <Form-item prop="password">
+        <Form-item>
           <Input type="password" v-model="login.password" placeholder="Password">
           <Icon type="ios-locked-outline" slot="prepend"></Icon>
           </Input>
