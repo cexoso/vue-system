@@ -3,9 +3,7 @@ import App from './App'
 import router from './router'
 import 'assets/css/reset.css'
 
-import Vuex from 'vuex'
 import store from './vuex'
-Vue.use(Vuex)
 
 import axios from 'axios'
 Vue.prototype.$axios = axios
