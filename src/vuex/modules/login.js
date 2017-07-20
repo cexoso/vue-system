@@ -27,7 +27,6 @@ export default {
     logIn ({ commit, state }, login) {
       api.post('/login/do_login_new_1', qs.stringify(login))
       .then(function (res) {
-        console.log(login)
         if (res.data.code === 200) {
           commit('LOGIN', res.data)
         } else {
