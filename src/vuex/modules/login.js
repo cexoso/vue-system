@@ -24,13 +24,15 @@ export default {
   },
   actions: {
     logIn ({ commit, state }, login) {
-      api.post('/login', login)
+      api.post('/do_login_new_1', login)
       .then(function (res) {
-        if (res.data.code === 200) {
-          commit('LOGIN', res.data)
-        } else {
-          state.msg = res.data.massage
-        }
+        console.log(res)
+        //   这里取不到数据
+        // if (res.data.code === 200) {
+        //   commit('LOGIN', res.data)
+        // } else {
+        //   state.msg = res.data.massage
+        // }
       })
     }
   }
