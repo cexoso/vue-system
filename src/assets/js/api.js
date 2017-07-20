@@ -21,8 +21,6 @@
         url,
         data,
         responseType: 'json'
-      }).catch(function (err) {
-        console.log(err)
       })
     }
   }
