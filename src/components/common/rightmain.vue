@@ -5,7 +5,7 @@
         <div class="right-breadcrumb">
           <Breadcrumb v-if="breadcrumb">
             <Breadcrumb-item>首页</Breadcrumb-item>
-            <Breadcrumb-item v-for="li in breadcrumb" :key="li">{{li}}</Breadcrumb-item>
+            <Breadcrumb-item v-for="li in breadcrumb" :key="li.index">{{li}}</Breadcrumb-item>
           </Breadcrumb>
         </div>
         <transition name="fold">

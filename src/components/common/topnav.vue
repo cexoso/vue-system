@@ -1,6 +1,6 @@
 <template>
   <ul class="topnav">
-    <li @click='to' v-for="link in routernav" :key="link">
+    <li @click='to' v-for="link in routernav" :key="link.index">
       <router-link :to="link.to">{{link.name}}</router-link>
     </li>
   </ul>

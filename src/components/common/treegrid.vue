@@ -1,19 +1,19 @@
 <template>
   <div class="treelist">
-    <dl class="bar" v-for="li in bar" :key="li">
+    <dl class="bar" v-for="li in bar" :key="li.index">
       <dt>{{li.name}}</dt>
-      <dd v-for="i in li.types" :key="i">{{i.title}}</dd>
+      <dd v-for="i in li.types" :key="i.index">{{i.title}}</dd>
       <dd>操作</dd>
     </dl>
     <ul>
-      <li class="list" v-for="li in tree" :key="li">
+      <li class="list" v-for="li in tree" :key="li.index">
         <dl class="title">
           <dt :class="['lev-'+ li.indent]" @click="li.expanded=!li.expanded">
             <i v-if="li.children" class="ivu-icon" :class="[li.expanded ? 'ivu-icon-chevron-down':'ivu-icon-chevron-right']" ></i>
             <i v-else class="ivu-icon ivu-icon-document"></i>
             {{li.name}}
           </dt>
-          <dd v-for="i in li.types" :key="i">{{i.li}}</dd>
+          <dd v-for="i in li.types" :key="i.index">{{i.li}}</dd>
           <dd class="btn">
             <Button type="primary" size="small">查看</Button>
             <Button type="error" size="small">删除</Button>
