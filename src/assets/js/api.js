@@ -18,8 +18,7 @@
       return axios({
         method: 'post',
         url,
-        data,
-        responseType: 'json'
+        data
       }).catch(function (err) {
         console.log(err)
       })

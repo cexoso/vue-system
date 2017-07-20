@@ -1,6 +1,7 @@
 import * as types from './../mutations-types'
 import router from 'router/index'
 import api from 'assets/js/api'
+import qs from 'qs'
 
 export default {
   state: {
@@ -24,9 +25,9 @@ export default {
   },
   actions: {
     logIn ({ commit, state }, login) {
-      api.post('/login/do_login_new_1', login)
+      api.post('/login/do_login_new_1', qs.stringify(login))
       .then(function (res) {
-        console.log(res)
+        console.log(login)
         if (res.data.code === 200) {
           commit('LOGIN', res.data)
         } else {
