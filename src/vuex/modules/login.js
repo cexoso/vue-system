@@ -29,6 +29,7 @@ export default {
       .then(function (res) {
         if (res.data.code === 200) {
           commit('LOGIN', res.data)
+          state.msg = ''
         } else {
           state.msg = res.data.message
         }
