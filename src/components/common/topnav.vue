@@ -16,7 +16,7 @@ export default {
   },
   methods: {
     to () {
-      sessionStorage.removeItem('breadcrumb')
+      localStorage.removeItem('breadcrumb')
     }
   }
 }

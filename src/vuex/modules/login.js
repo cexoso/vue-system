@@ -17,7 +17,7 @@ export default {
   },
   mutations: {
     [types.LOGIN] (state, res) {
-      sessionStorage.setItem('token', res.info.token)
+      localStorage.setItem('token', res.info.token)
       router.push({ name: 'index' })
       state.login.username = ''
       state.login.password = ''
