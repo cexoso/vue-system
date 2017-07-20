@@ -39,7 +39,6 @@ export default {
     leftMenu ({commit}, res) {
       api.get('/leftMenu')
         .then(function (res) {
-          console.log(res)
           commit('leftMenu', res.data)
         })
     }
