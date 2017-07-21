@@ -1,6 +1,6 @@
 <template>
   <div class="leftnav">
-    <Menu @on-select="isActive" theme="dark">
+    <Menu @on-select="isActive" theme="dark" accordion ref="leftMenu" :open-names="open" :active-name="active">
       <Submenu v-for="submenu in leftMenu" :key="submenu.index" :name="submenu.index">
         <template slot="title">
           <Icon :type="submenu.icon"></Icon>
@@ -18,7 +18,8 @@ export default {
   computed: {
     ...mapGetters([
       'leftMenu',
-      'Select'
+      'open',
+      'active'
     ])
   },
   methods: {
