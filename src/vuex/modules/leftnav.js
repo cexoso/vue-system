@@ -5,11 +5,15 @@ import api from 'assets/js/api'
 export default {
   state: {
     leftMenu: [],
-    breadcrumb: []
+    breadcrumb: [],
+    open: [],
+    active: ''
   },
   getters: {
     leftMenu: state => state.leftMenu,
-    breadcrumb: state => state.breadcrumb
+    breadcrumb: state => state.breadcrumb,
+    open: state => state.open,
+    active: state => state.active
   },
   mutations: {
     [types.IS_ACTIVE]: (state, key) => {
@@ -23,6 +27,9 @@ export default {
       let to = ''
       to = state.leftMenu[name[0]].subs[name[1]].to
       router.push({path: to})
+
+      state.active = key
+      state.open = [name[0] + 1 + '']
     },
     leftMenu: (state, res) => {
       state.leftMenu = res.leftMenu
