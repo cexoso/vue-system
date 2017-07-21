@@ -1,33 +1,29 @@
 import * as types from './../mutations-types'
 import router from 'router'
 import api from 'assets/js/api'
+import storage from 'assets/js/storage'
 
 export default {
   state: {
     leftMenu: [],
-    name: [],
     breadcrumb: []
   },
   getters: {
     leftMenu: state => state.leftMenu,
-    breadcrumb: state => state.name ? JSON.parse(localStorage.getItem('breadcrumb')) : state.name[0]
+    breadcrumb: state => state.breadcrumb ? storage.getItem('breadcrumb') : state.breadcrumb
   },
   mutations: {
     [types.IS_ACTIVE]: (state, key) => {
       // 面包屑
-      state.name = []
       let name = key.split('-').map((a) => --a)
       let title = state.leftMenu[name[0]].title
       let sub = state.leftMenu[name[0]].subs[name[1]].name
-      state.name.push([title, sub])
-      localStorage.setItem('breadcrumb', JSON.stringify(state.name[0]))
-
+      state.breadcrumb = [title, sub]
+      storage.setItem('breadcrumb', state.breadcrumb)   // 保存面包屑数据
       // 路由切换
       let to = ''
       to = state.leftMenu[name[0]].subs[name[1]].to
-      router.push({
-        path: to
-      })
+      router.push({path: to})
     },
     leftMenu: (state, res) => {
       state.leftMenu = res.leftMenu
