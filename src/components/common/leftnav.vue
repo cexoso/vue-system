@@ -1,6 +1,6 @@
 <template>
   <div class="leftnav">
-    <Menu :theme="theme" @on-select="isActive">
+    <Menu @on-select="isActive" theme="dark">
       <Submenu v-for="submenu in leftMenu" :key="submenu.index" :name="submenu.index">
         <template slot="title">
           <Icon :type="submenu.icon"></Icon>
@@ -15,14 +15,10 @@
 <script>
 import { mapGetters, mapActions } from 'vuex'
 export default {
-  data () {
-    return {
-      theme: 'dark'
-    }
-  },
   computed: {
     ...mapGetters([
-      'leftMenu'
+      'leftMenu',
+      'Select'
     ])
   },
   methods: {
