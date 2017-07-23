@@ -29,6 +29,12 @@ export default {
   },
   created () {
     this.$store.dispatch('leftMenu')
+
+    this.$nextTick(function () {
+      this.$refs.leftMenu.updateOpened()
+      this.$refs.leftMenu.updateActiveName()
+    })
+    this.isActive(this.$store.state.active)
   }
 }
 </script>
