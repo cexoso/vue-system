@@ -35,7 +35,6 @@ export default {
     },
     leftMenu: (state, res) => {
       state.leftMenu = res.leftMenu
-
       state.open = local.getItem('select')[1]
       state.active = local.getItem('select')[0]
     }

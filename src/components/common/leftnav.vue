@@ -15,6 +15,15 @@
 <script>
 import { mapGetters, mapActions } from 'vuex'
 export default {
+  created () {
+    this.$store.dispatch('leftMenu')
+
+    this.$nextTick(function () {
+      this.$refs.leftMenu.updateOpened()
+      this.$refs.leftMenu.updateActiveName()
+    })
+    // this.isActive(this.$store.state.open)
+  },
   computed: {
     ...mapGetters([
       'leftMenu',
@@ -26,15 +35,6 @@ export default {
     ...mapActions({
       isActive: 'isActive'
     })
-  },
-  created () {
-    this.$store.dispatch('leftMenu')
-
-    this.$nextTick(function () {
-      this.$refs.leftMenu.updateOpened()
-      this.$refs.leftMenu.updateActiveName()
-    })
-    // this.isActive(this.$store.state.open, this.$store.state.active)
   }
 }
 </script>
