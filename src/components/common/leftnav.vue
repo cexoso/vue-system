@@ -23,9 +23,9 @@ export default {
     ])
   },
   methods: {
-    ...mapActions([
-      'isActive'
-    ])
+    ...mapActions({
+      isActive: 'isActive'
+    })
   },
   created () {
     this.$store.dispatch('leftMenu')
@@ -34,7 +34,7 @@ export default {
       this.$refs.leftMenu.updateOpened()
       this.$refs.leftMenu.updateActiveName()
     })
-    this.isActive(this.$store.state.active)
+    // this.isActive(this.$store.state.open, this.$store.state.active)
   }
 }
 </script>

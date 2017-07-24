@@ -8,16 +8,13 @@ export default {
     leftMenu: [],
     breadcrumb: [],
     open: [],
-    active: '',
-    select: []
+    active: ''
   },
   getters: {
     leftMenu: state => state.leftMenu,
     breadcrumb: state => state.breadcrumb ? local.getItem('breadcrumb') : state.breadcrumb,
-
-    select: state => local.getItem('select'),
-    open: state => state.select[0],
-    active: state => state.select[1]
+    open: state => state.open,
+    active: state => state.active
   },
   mutations: {
     [types.IS_ACTIVE]: (state, key) => {
@@ -33,14 +30,14 @@ export default {
       to = state.leftMenu[name[0]].subs[name[1]].to
       router.push({path: to})
 
-      state.select = [key, [name[0] + 1 + '']]
-
-      // state.active = key
-      // state.open = [name[0] + 1 + '']
-      local.setItem('select', state.select)
+      // 左导航
+      local.setItem('select', [key, [name[0] + 1 + '']])
     },
     leftMenu: (state, res) => {
       state.leftMenu = res.leftMenu
+
+      state.open = local.getItem('select')[1]
+      state.active = local.getItem('select')[0]
     }
   },
   actions: {
